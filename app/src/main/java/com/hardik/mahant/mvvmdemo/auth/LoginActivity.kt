@@ -14,7 +14,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         super.onCreate(savedInstanceState)
         val binding: ActivityLoginBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_login)
-
+        val vm = ViewModelProvider(this).get(AuthViewModel::class.java)
+        binding.loginViewModel = vm
+        vm.authListener = this
     }
 
     override fun onStarted() {

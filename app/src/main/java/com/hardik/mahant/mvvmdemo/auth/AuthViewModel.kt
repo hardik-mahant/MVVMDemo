@@ -8,7 +8,7 @@ class AuthViewModel: ViewModel() {
     var email: String? = null
     var password: String? = null
 
-    private val authListener: AuthListener? = null
+    var authListener: AuthListener? = null
 
     fun onLoginPressed(view:View){
         authListener?.onStarted()
