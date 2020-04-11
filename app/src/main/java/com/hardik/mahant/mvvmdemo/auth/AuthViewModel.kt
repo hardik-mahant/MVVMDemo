@@ -16,9 +16,7 @@ class AuthViewModel: ViewModel() {
             authListener?.onFailure("Invalid EmailID or password")
             return
         }
-
-        //authenticate now!
-        authListener?.onFailure("Login success!")
+        authListener?.onSuccess()
     }
 
 }
