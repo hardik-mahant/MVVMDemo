@@ -1,11 +1,11 @@
 package com.hardik.mahant.mvvmdemo.ui.auth
 
-import androidx.lifecycle.LiveData
+import com.hardik.mahant.mvvmdemo.data.db.entities.User
 
 interface AuthListener {
 
     fun onStarted()
-    fun onSuccess(loginResponse: LiveData<String>)
+    fun onSuccess(loginResponse: User)
     fun onFailure(message: String)
     fun onRegisterClicked()
 

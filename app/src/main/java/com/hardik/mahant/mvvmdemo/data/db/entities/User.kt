@@ -9,7 +9,9 @@ const val CURRENT_USER_ID = 0
 data class User(
     var userID: Int,
     var emailID: String,
-    var password: String
+    var password: String,
+    val firstName: String,
+    val lastName: String
 ) {
     @PrimaryKey(autoGenerate = false)
     var uid: Int = CURRENT_USER_ID

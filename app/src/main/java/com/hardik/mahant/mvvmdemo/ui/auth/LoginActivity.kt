@@ -4,10 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hardik.mahant.mvvmdemo.R
+import com.hardik.mahant.mvvmdemo.data.db.entities.User
 import com.hardik.mahant.mvvmdemo.databinding.ActivityLoginBinding
 import com.hardik.mahant.mvvmdemo.util.hide
 import com.hardik.mahant.mvvmdemo.util.show
@@ -31,11 +30,9 @@ class LoginActivity : AppCompatActivity(),
         progressBar.show()
     }
 
-    override fun onSuccess(loginResponse: LiveData<String>) {
-        loginResponse.observe(this, Observer {
-            showToast(it)
-            progressBar.hide()
-        })
+    override fun onSuccess(loginResponse: User) {
+        progressBar.hide()
+        showToast("${loginResponse.firstName} ${loginResponse.lastName} is logged in!")
     }
 
     override fun onFailure(message: String) {
