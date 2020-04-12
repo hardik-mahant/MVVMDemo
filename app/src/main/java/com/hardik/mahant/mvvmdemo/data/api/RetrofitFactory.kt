@@ -4,8 +4,10 @@ import com.google.gson.GsonBuilder
 import com.hardik.mahant.mvvmdemo.util.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 object RetrofitFactory {
     fun makeRetrofitService(baseURL: String = BASE_URL, useGSON: Boolean = false): API {
@@ -13,7 +15,14 @@ object RetrofitFactory {
             .setLenient()
             .create()
 
-        val client = OkHttpClient().newBuilder().build()
+
+        // HttpLoggingInterceptor
+        val httpLoggingInterceptor =
+            HttpLoggingInterceptor()
+
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client = OkHttpClient().newBuilder()
+            .addInterceptor(httpLoggingInterceptor).build()
 
         return if (useGSON) {
             Retrofit.Builder()
