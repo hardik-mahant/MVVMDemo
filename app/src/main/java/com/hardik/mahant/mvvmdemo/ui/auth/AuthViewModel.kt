@@ -1,8 +1,8 @@
-package com.hardik.mahant.mvvmdemo.auth
+package com.hardik.mahant.mvvmdemo.ui.auth
 
 import android.view.View
 import androidx.lifecycle.ViewModel
-import com.hardik.mahant.mvvmdemo.repository.UserRepository
+import com.hardik.mahant.mvvmdemo.data.repository.UserRepository
 
 class AuthViewModel : ViewModel() {
 
@@ -18,7 +18,8 @@ class AuthViewModel : ViewModel() {
             return
         }
 
-        val loginResponse = UserRepository().userLogin(email!!, password!!)
+        val loginResponse = UserRepository()
+            .userLogin(email!!, password!!)
         authListener?.onSuccess(loginResponse)
     }
 

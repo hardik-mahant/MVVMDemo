@@ -1,4 +1,4 @@
-package com.hardik.mahant.mvvmdemo.auth
+package com.hardik.mahant.mvvmdemo.ui.auth
 
 import androidx.lifecycle.LiveData
 

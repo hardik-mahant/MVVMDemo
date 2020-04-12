@@ -1,4 +1,4 @@
-package com.hardik.mahant.mvvmdemo.auth
+package com.hardik.mahant.mvvmdemo.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,7 +14,8 @@ import com.hardik.mahant.mvvmdemo.util.show
 import com.hardik.mahant.mvvmdemo.util.showToast
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(), AuthListener {
+class LoginActivity : AppCompatActivity(),
+    AuthListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +32,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     }
 
     override fun onSuccess(loginResponse: LiveData<String>) {
-        progressBar.hide()
         loginResponse.observe(this, Observer {
             showToast(it)
+            progressBar.hide()
         })
     }
 

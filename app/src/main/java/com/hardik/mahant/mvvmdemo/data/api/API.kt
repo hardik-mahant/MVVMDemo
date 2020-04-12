@@ -1,4 +1,4 @@
-package com.hardik.mahant.mvvmdemo.api
+package com.hardik.mahant.mvvmdemo.data.api
 
 import okhttp3.ResponseBody
 import retrofit2.Call

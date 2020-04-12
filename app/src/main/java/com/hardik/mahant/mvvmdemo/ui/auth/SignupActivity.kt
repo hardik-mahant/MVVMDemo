@@ -1,7 +1,7 @@
-package com.hardik.mahant.mvvmdemo.auth
+package com.hardik.mahant.mvvmdemo.ui.auth
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.hardik.mahant.mvvmdemo.R
 
 class SignupActivity : AppCompatActivity() {

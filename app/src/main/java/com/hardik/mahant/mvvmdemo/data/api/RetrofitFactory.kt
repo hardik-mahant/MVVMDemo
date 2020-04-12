@@ -1,4 +1,4 @@
-package com.hardik.mahant.mvvmdemo.api
+package com.hardik.mahant.mvvmdemo.data.api
 
 import com.google.gson.GsonBuilder
 import com.hardik.mahant.mvvmdemo.util.BASE_URL

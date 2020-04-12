@@ -1,8 +1,8 @@
-package com.hardik.mahant.mvvmdemo.repository
+package com.hardik.mahant.mvvmdemo.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.hardik.mahant.mvvmdemo.api.RetrofitFactory
+import com.hardik.mahant.mvvmdemo.data.api.RetrofitFactory
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
