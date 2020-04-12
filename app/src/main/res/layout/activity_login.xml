@@ -64,7 +64,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@={(v) -> loginViewModel.onLoginPressed(v)}"
+            android:onClick="@{(v) -> loginViewModel.onLoginPressed(v)}"
             android:text="Login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
