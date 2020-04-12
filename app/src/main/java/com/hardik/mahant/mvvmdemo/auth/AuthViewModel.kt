@@ -2,21 +2,28 @@ package com.hardik.mahant.mvvmdemo.auth
 
 import android.view.View
 import androidx.lifecycle.ViewModel
+import com.hardik.mahant.mvvmdemo.repository.UserRepository
 
-class AuthViewModel: ViewModel() {
+class AuthViewModel : ViewModel() {
 
     var email: String? = null
     var password: String? = null
 
     var authListener: AuthListener? = null
 
-    fun onLoginPressed(view:View){
+    fun onLoginPressed(view: View) {
         authListener?.onStarted()
-        if(email.isNullOrEmpty() || password.isNullOrEmpty()){
+        if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
             authListener?.onFailure("Invalid EmailID or password")
             return
         }
-        authListener?.onSuccess()
+
+        val loginResponse = UserRepository().userLogin(email!!, password!!)
+        authListener?.onSuccess(loginResponse)
+    }
+
+    fun onRegisterPressed(view: View) {
+        authListener?.onRegisterClicked()
     }
 
 }

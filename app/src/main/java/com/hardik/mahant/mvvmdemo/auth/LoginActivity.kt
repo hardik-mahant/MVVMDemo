@@ -1,12 +1,18 @@
 package com.hardik.mahant.mvvmdemo.auth
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hardik.mahant.mvvmdemo.R
 import com.hardik.mahant.mvvmdemo.databinding.ActivityLoginBinding
+import com.hardik.mahant.mvvmdemo.util.hide
+import com.hardik.mahant.mvvmdemo.util.show
 import com.hardik.mahant.mvvmdemo.util.showToast
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), AuthListener {
 
@@ -21,13 +27,22 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     override fun onStarted() {
         showToast("Auth Started")
+        progressBar.show()
     }
 
-    override fun onSuccess() {
-        showToast("Auth Success")
+    override fun onSuccess(loginResponse: LiveData<String>) {
+        progressBar.hide()
+        loginResponse.observe(this, Observer {
+            showToast(it)
+        })
     }
 
     override fun onFailure(message: String) {
+        progressBar.hide()
         showToast("Auth Failure:$message")
+    }
+
+    override fun onRegisterClicked() {
+        startActivity(Intent(this@LoginActivity, SignupActivity::class.java))
     }
 }
